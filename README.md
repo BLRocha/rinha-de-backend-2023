@@ -1,4 +1,4 @@
-# Rinha de Backend no Runtime Bun. :fire: ::boom:: ::boom::
+# Rinha de Backend no Runtime Bun. :fire: :boom: :boom:
 
 ## Stack
 1. **JavaScript/TypeScript:** linguagem de progamao. sobre - [Javascript](https://pt.wikipedia.org/wiki/JavaScript). sobre - [typescript](https://www.typescriptlang.org/).
