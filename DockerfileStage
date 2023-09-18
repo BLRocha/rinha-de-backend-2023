@@ -1,0 +1,13 @@
+FROM ubuntu:23.10 as main
+
+WORKDIR /bun
+
+RUN apt update && apt install curl unzip -y &&\
+    curl -sSLO https://github.com/oven-sh/bun/releases/latest/download/bun-linux-x64-baseline.zip &&\
+    unzip bun-linux-x64-baseline.zip &&\
+    cp bun-linux-x64-baseline/bun /bun
+
+
+FROM ubuntu:23.10
+
+COPY --from=main /bun/bun /usr/local/bin/

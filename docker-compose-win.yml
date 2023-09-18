@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=bun
+    ports:
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: 2G
+        reservations:
+          cpus: '0.4'
+          memory: 750M
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
+    command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
+
+
+version: '3.8'

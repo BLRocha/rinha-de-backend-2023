@@ -1,0 +1,7 @@
+docker-compose*.yml
+Dockerfile
+/node_modules
+*.conf
+*.sql
+docker*.yml
+.gi*
