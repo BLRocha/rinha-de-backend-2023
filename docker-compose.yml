@@ -7,7 +7,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.1" # 0.1
+          cpus: "0.05" # 0.1
           memory: "0.5GB"
     networks:
       - posttest
@@ -21,7 +21,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.7' # 0.6
+          cpus: '0.75' # 0.6
           memory: '1.5GB'
     networks:
       - posttest
@@ -30,7 +30,7 @@ services:
       - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
     command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
   app1:
-    image: app:bun
+    image: leandro159/app:bun
     ports:
       - :80
     networks:
@@ -45,7 +45,7 @@ services:
           cpus: '0.25' # 0.3
           memory: '0.6GB'
   app2:
-    image: app:bun
+    image: leandro159/app:bun
     ports:
       - :80
     networks:
