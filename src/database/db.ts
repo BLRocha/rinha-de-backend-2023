@@ -6,7 +6,7 @@ const pool = new Pool({
     password: '123',
     database: 'bun',
     max: 500,
-    idleTimeoutMillis: 0,
+    //idleTimeoutMillis: 0,
     connectionTimeoutMillis: 10000,
 });
 

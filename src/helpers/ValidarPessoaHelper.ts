@@ -6,10 +6,10 @@ type Pessoa = {
 }
 
 const validarData = (dateString: string) => isNaN(new Date(dateString).getTime());
+const type = (a: any) => typeof a !== 'string';
 
 export const validarPessoaHelper = (pessoa: Pessoa | unknown) => {
     const { apelido, nome, nascimento, stack } = pessoa as Pessoa;
-    const type = (a: any) => typeof a !== 'string';
     if (type(apelido) || apelido.length > 32)
         return false;
     if (typeof stack === 'string' || typeof stack == 'number')
@@ -17,5 +17,5 @@ export const validarPessoaHelper = (pessoa: Pessoa | unknown) => {
     if ( type(nome) || nome.length > 100)
         return false;
     if (validarData(nascimento)) return false;
-    return (stack == null || stack.every( stkItem => (stkItem.length < 33 && stkItem === 'string')))
+    return (stack == null || stack.every( stkItem => (stkItem.length < 33 && !/\d|null|false|true|undefined/.test(stkItem))))
 }
