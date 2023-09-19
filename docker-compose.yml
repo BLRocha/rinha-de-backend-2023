@@ -29,8 +29,8 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./postgresql.conf:/docker-entrypoint-initdb.d/postgresql.conf
     command: postgres -c config_file=/docker-entrypoint-initdb.d/postgresql.conf
-  app1:
-    image: leandro159/app:bun
+  app1: &api
+    build: .
     ports:
       - :80
     networks:
@@ -45,7 +45,8 @@ services:
           cpus: '0.3375' # 0.3
           memory: '0.6GB'
   app2:
-    image: leandro159/app:bun
+    <<: *api
+    hostname: api2
     ports:
       - :80
     networks:
