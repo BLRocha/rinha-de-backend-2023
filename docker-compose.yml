@@ -21,7 +21,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.75' # 0.6
+          cpus: '0.6' # 0.6
           memory: '1.5GB'
     networks:
       - posttest
@@ -42,7 +42,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25' # 0.3
+          cpus: '0.3375' # 0.3
           memory: '0.6GB'
   app2:
     image: leandro159/app:bun
@@ -57,7 +57,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25' # 03
+          cpus: '0.3375' # 03
           memory: '0.6GB'
   
   nginx:
@@ -67,7 +67,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.2' # 0.2
+          cpus: '0.175' # 0.2
           memory: '0.5GB'
     ports:
       - '9999:9999'
