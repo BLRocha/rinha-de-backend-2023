@@ -33,7 +33,7 @@ app.get('/pessoas', async ({ query, set, headers }) => {
   const { t } = query as QueryTermo;
 
   if (!t) return _400;
-  if(/\d/.test(t) || /\n/.test(t) || t?.indexOf(' ') == -1 ) return _200;
+  if(t === '' || /\d|\n/.test(t)) return _200;
 
   const termo = t?.toLocaleLowerCase();
 
