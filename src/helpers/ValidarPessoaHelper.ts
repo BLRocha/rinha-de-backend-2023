@@ -1,4 +1,3 @@
-import { parse } from 'date-fns'
 type Pessoa = {
     apelido: string
     nome: string
@@ -6,8 +5,7 @@ type Pessoa = {
     stack: Array<string> | null
 }
 
-const validarData = (dateString: string) => isNaN(parse(
-    dateString, 'yyyy-MM-dd', new Date())?.getTime());
+const validarData = (dateString: string) => isNaN(new Date(dateString).getTime());
 
 export const validarPessoaHelper = (pessoa: Pessoa | unknown) => {
     const { apelido, nome, nascimento, stack } = pessoa as Pessoa;
@@ -19,5 +17,5 @@ export const validarPessoaHelper = (pessoa: Pessoa | unknown) => {
     if ( type(nome) || nome.length > 100)
         return false;
     if (validarData(nascimento)) return false;
-    return (stack == null || stack.every( stkItem => (stkItem.length < 33)))
+    return (stack == null || stack.every( stkItem => (stkItem.length < 33 && stkItem === 'string')))
 }
