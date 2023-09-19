@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "@types/pg": "^8.10.2",
-    "date-fns": "^2.30.0",
     "elysia": "latest",
     "pg": "^8.11.3",
     "pg-pool": "^3.6.1",
